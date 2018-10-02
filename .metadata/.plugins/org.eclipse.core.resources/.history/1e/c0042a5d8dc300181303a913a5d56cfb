@@ -1,0 +1,98 @@
+/*
+ * File name: Puck.java
+ *
+ * Programmer: Michael Jesus Reyes
+ *
+ * Date: Nov 11, 2017
+ */
+package reyesProjects;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**
+ * <Insert C;ass Description Here>
+ *
+ * @author Michael Jesus Reyes
+ *
+ */
+public class Puck 
+{
+	private BAHE game;
+	private static final int RADIUS=20;
+	private int x, y, xa, ya;
+	private int centerX = x + RADIUS;
+	private int centerY = y + RADIUS;
+	private Color currentColor;
+	
+	public Puck(BAHE game)
+	{
+		this.game = game;
+		
+		//How do I decide where pucks spawn?
+		//3 on each side. In triangle formation?
+		
+		this.setColor(Color.BLUE);
+	}
+	
+	public int getRadius()
+	{
+		return RADIUS;
+	}
+	
+	public int getCenterXPos()
+	{
+		return centerX;
+	}
+	
+	public int getCenterYPos()
+	{
+		return centerY;
+	}
+	
+	public void setColor(Color newColor)
+	{
+		this.currentColor = newColor;
+	}
+	
+	public Color getColor()
+	{
+		return currentColor;
+	}
+	
+	public void update()
+	{
+		x += xa;
+		y += ya;
+		
+		//Need to check for collisions
+		
+		//Need to check what side each puck is on WIN CONDITION
+	}
+	
+	public void checkWallCollision(Barrier wall)
+	{
+		
+		//Ex. Hit on top section, flip ya.
+		//Ex. Hit on side sections, flip xa.
+		//Ex. Hit on top corner, flip xa and xy.
+	}
+	
+	public void checkPuckCollision(Puck otherPuck)
+	{
+		//If combination of two radius >= distance from centers then collision.
+		// Distance between two points is: d = sqrt((x2-x1)^2+(y2-y1)^2)
+		if((this.getRadius() + otherPuck.getRadius()) >= Math.sqrt((double)(Math.pow((otherPuck.getCenterYPos()-this.getCenterYPos()),2) + Math.pow((otherPuck.getCenterXPos()-this.getCenterXPos()),2))))
+		{
+			//Collision
+			this.setColor(Color.RED);
+			otherPuck.setColor(Color.RED);
+		}
+	}
+	
+	public void paint(Graphics g)
+	{
+		g.setColor(currentColor);
+		g.fillOval(x, y, RADIUS, RADIUS);
+	}
+}

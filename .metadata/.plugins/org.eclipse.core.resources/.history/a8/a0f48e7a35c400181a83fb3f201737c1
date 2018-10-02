@@ -1,0 +1,42 @@
+/*
+ * File name: Ball.java
+ *
+ * Programmer: Michael Jesus Reyes
+ *
+ * Date: Sep 29, 2018
+ */
+package reyesProjects;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**
+ * <Insert C;ass Description Here>
+ *
+ * @author Michael Jesus Reyes
+ *
+ */
+public class Ball
+{
+	private final static int RADIUS = 20;
+	private int xPos, yPos, xVel, yVel, xAccel, yAccel; 
+	private int centerXPos, centerYPos;
+	private Color currentColor;
+	
+	public Ball(int startingXPos, int startingYPos)
+	{
+		
+	}
+	
+	public void update()
+	{
+		
+	}
+	
+	public void paint(Graphics g)
+	{
+		
+	}
+	
+	
+}

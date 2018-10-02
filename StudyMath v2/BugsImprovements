@@ -1,0 +1,15 @@
+Bugs fixed:
+ 1. When doing multiple sessions of multiplication tables, the numbers correct and incorrect carry over (added from last time).
+
+Improvements made:
+ 1.
+
+
+
+
+
+
+
+Bugs to fix:
+ 1. Need to make it impossible to break the program for inputs (Try/catches).
+ 	-while loop try catch?

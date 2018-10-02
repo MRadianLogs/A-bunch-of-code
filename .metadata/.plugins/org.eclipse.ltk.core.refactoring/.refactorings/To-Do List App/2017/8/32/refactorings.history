@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;reyesProjects.List&apos; to &apos;ActivityList&apos;&#x0D;&#x0A;- Original project: &apos;To-Do List App&apos;&#x0D;&#x0A;- Original element: &apos;reyesProjects.List&apos;&#x0D;&#x0A;- Renamed element: &apos;reyesProjects.ActivityList&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;List&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;reyesProjects{List.java[List" matchStrategy="1" name="ActivityList" qualified="false" references="true" similarDeclarations="false" stamp="1502395236241" textual="false" version="1.0"/>
+</session>

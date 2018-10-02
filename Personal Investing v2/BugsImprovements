@@ -1,0 +1,21 @@
+Bugs fixed:
+ 1. An error occurs when you delete an investment. 
+ 2. 
+
+
+Improvements made:
+ 1. Closed input variable.
+ 2. Removed 'count' variable that wasn't used.
+ 3. 
+
+
+
+
+Bugs/Additions to fix:
+ 1. Need to number investments.
+ 2. Need to show sum of all money in investments.
+ 3. Need to add goal/money needed for investment.
+ 4.
+ 
+ 
+ 5. Create a better user-friendly UI. JFrame? Applet?
