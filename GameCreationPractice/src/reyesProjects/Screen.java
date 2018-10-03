@@ -33,8 +33,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		setBackground(Color.BLACK);
 		this.game = game;
-		person1 = new Person(game, KeyEvent.VK_S, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, Color.RED, 50);
-		person2 = new Person(game, KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, Color.BLUE, 50);
+		//person1 = new Person(game, KeyEvent.VK_S, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, Color.RED, 50);
+		//person2 = new Person(game, KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, Color.BLUE, 50);
 		Timer timer = new Timer(5,this);
 		timer.start();
 		addKeyListener(this);
@@ -55,8 +55,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	
 	public void update()
 	{
-		person1.update();
-		person2.update();
+		//person1.update();
+		//person2.update();
 	}
 	
 	@Override
@@ -69,15 +69,15 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		person1.keyPressed(e.getKeyCode());
-		person2.keyPressed(e.getKeyCode());
+		//person1.keyPressed(e.getKeyCode());
+		//person2.keyPressed(e.getKeyCode());
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		person1.keyReleased(e.getKeyCode());		
-		person2.keyReleased(e.getKeyCode());		
+		//person1.keyReleased(e.getKeyCode());		
+		//person2.keyReleased(e.getKeyCode());		
 	}
 
 	@Override
@@ -86,29 +86,12 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		;		
 	}
 	
-	private void paintHealth(Person player, Graphics g)
-	{
-		if(player == person1)
-		{
-			g.setColor(player.getColor());
-			g.drawRect(15, 15, 100, 20);
-			g.fillRect(15, 15, (int)player.getHealth()*5, 20);
-		}
-		if(player == person2)
-		{
-			g.setColor(player.getColor());
-			g.drawRect(15, 40, 100, 20);
-			g.fillRect(15, 40, (int)player.getHealth()*5, 20);
-		}
-	}
-	
 	@Override
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		person1.paint(g);
-		person2.paint(g);
-		paintHealth(person1, g);
-		paintHealth(person2, g);
+		//person1.paint(g);
+		//person2.paint(g);
+		
 	}
 }

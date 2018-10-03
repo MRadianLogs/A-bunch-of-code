@@ -10,18 +10,17 @@ package reyesProjects;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
 /**
- * <Insert C;ass Description Here>
+ *  This class is one of my first game mechanic classes where I experimented with drawing shapes and applying person/warrior like mechanics
+ *  to the shapes, such as health, attacking, and such.
  *
  * @author Michael Jesus Reyes
  *
  */
-public class Person implements ActionListener
+public class Person
 {
 	private double xPos, yPos;
 	private double xAccel = 0, yAccel = 0;
@@ -31,7 +30,7 @@ public class Person implements ActionListener
 	private int WIDTH = 20;
 	private int HEIGHT = 20;
 	private Color COLOR;
-	private double health = 20;
+	private double health = 100;
 	private boolean facingRight;
 	private boolean attacking = false;
 	private boolean dead = false;
@@ -52,7 +51,7 @@ public class Person implements ActionListener
 		this.COLOR = color;
 		this.WIDTH = size;
 		this.HEIGHT = size;
-		attackCooldown = new Timer(5, this);
+		//attackCooldown = new Timer(5, this); 
 	}
 	
 	public double getXPos()
@@ -231,15 +230,15 @@ public class Person implements ActionListener
 			{
 				attack();
 				attacking = true;
-				try
-				{
-					attackCooldown.wait(500);
-				}
-				catch (InterruptedException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try
+//				{
+//					//attackCooldown.wait(500);  //I was working on an attack cooldown here involving timers.
+//				}
+//				catch (NullPointerException | InterruptedException e)
+//				{
+//					// TODO Auto-generated catch block
+//					//e.printStackTrace();
+//				}
 			}
 		}
 	}
@@ -278,6 +277,13 @@ public class Person implements ActionListener
 		}
 	}
 	
+	private void paintHealth(Graphics g)
+	{
+		g.setColor(getColor());
+		g.drawRect((int)getXPos()-25, (int)getYPos()-25, 100, 20);
+		g.fillRect((int)getXPos()-25, (int)getYPos()-25, (int) getHealth(), 20);
+	}
+	
 	public void paint(Graphics g)
 	{
 		g.setColor(COLOR);
@@ -286,11 +292,6 @@ public class Person implements ActionListener
 		paintFace(g);
 		paintAttack(g);
 		paintDeath(g);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0)
-	{
-		update();		
+		paintHealth(g);
 	}
 }
