@@ -10,7 +10,9 @@ package reyesProjects;
 import javax.swing.JOptionPane;
 
 /**
- * <Insert C;ass Description Here>
+ * This program is me practicing using pop-up boxes, known as JOptionPanes in JFrame, in order to accept user 
+ * input. This program accepts a number of apples and oranges as inputs, and calculates the total number of 
+ * fruits from the numbers the user inputs.
  *
  * @author Michael Jesus Reyes
  *

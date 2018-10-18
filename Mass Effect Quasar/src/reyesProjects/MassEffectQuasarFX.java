@@ -19,7 +19,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
- * <Insert C;ass Description Here>
+ * This is my Mass Effect Quasar game. It is my recreation of a popular slots game in the game Mass Effect. The goal of 
+ * the game is to get as close to 20 as possible, without going over. This program implements a new form of graphics interface 
+ * called JavaFX. The features of JavaFX implemented in this program include displaying text and buttons into neat arrangements 
+ * on the screen, having clickable buttons that affect the program, and successfully implementing the rules of the game into 
+ * code. Have fun!
  *
  * @author Michael Jesus Reyes
  *

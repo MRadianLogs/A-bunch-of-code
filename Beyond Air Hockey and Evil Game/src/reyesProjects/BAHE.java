@@ -10,7 +10,8 @@ package reyesProjects;
 import javax.swing.JFrame;
 
 /**
- * <Insert C;ass Description Here>
+ * This is the main class for the Beyond Air Hockey and Evil Game. It is responsible for creating the JFrame(the screen), and 
+ * starting the processes of the game by creating an initializing the BAHEScreen object(the visual aspect of the game on the JFrame). 
  *
  * @author Michael Jesus Reyes
  *

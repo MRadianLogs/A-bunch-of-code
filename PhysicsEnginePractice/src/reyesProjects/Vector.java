@@ -8,7 +8,7 @@
 package reyesProjects;
 
 /**
- * <Insert C;ass Description Here>
+ * This is the Vector class. This class represents the physics property of a vector into code. 
  *
  * @author Michael Jesus Reyes
  *

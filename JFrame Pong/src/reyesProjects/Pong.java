@@ -12,7 +12,11 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
- * <Insert C;ass Description Here>
+ * This is my first JFrame practice program. I followed somebody else's tutorial code of Pong so that I may learn 
+ * the basic mechanics of what allows you to animate objects with a JFrame. That being said, this class is the main 
+ * Pong class. It created the JFrame and its attributes and starts the game by creating a screen object. This program 
+ * features mechanics such as animation of objects, automatically moving objects, basic collision detection, user key 
+ * input for moving objects, and implementing the rules of the game Pong into code.
  *
  * @author Michael Jesus Reyes
  *

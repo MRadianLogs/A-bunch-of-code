@@ -10,7 +10,9 @@ package reyesProjects;
 import javax.swing.JFrame;
 
 /**
- * <Insert C;ass Description Here>
+ * This program is a physics engine testing program. This program will allows me to experiment with various 
+ * physics properties/ideas in code, and even test some game development ideas that involve using realistic/ish 
+ * physics. Some features of this program include using physics Vectors, collision detection, and more..
  *
  * @author Michael Jesus Reyes
  *

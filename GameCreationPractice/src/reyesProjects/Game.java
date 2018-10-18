@@ -12,7 +12,10 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
- * <Insert C;ass Description Here>
+ * This is my first attempt at experimenting with the various aspects of game development. I created this class once I 
+ * learned how to animate graphics and code to a screen, specifically a JFrame. 
+ * This class is essentially a game physics engine, where I can easily input new game development ideas or entities to 
+ * test them in various ways. 
  *
  * @author Michael Jesus Reyes
  *

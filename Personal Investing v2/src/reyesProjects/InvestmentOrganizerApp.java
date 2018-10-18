@@ -16,8 +16,9 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * The idea is to have a class where I enter a money amount and have it divided into different investments categories. This is the application class that 
- * will run the program. It will be responsible for user interaction. It will use a menu-like system to operate. It will also use File IO to save data.
+ * The idea is to have a class where I enter a money amount and have it divided into different investments categories. 
+ * This is the application class that will run the program. It will be responsible for user interaction. It will use 
+ * a menu-like system to operate. It will also use File IO to save data.
  *
  * @author Michael Jesus Reyes
  *
