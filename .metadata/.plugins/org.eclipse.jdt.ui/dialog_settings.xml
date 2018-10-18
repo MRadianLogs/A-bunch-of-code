@@ -51,11 +51,13 @@
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\banan\Documents\Programming\Eclipse Workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="MazeApp (1) - module3" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\banan\Desktop\MRQuasar.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="MassEffectQuasarFX - Mass Effect Quasar" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\banan\Desktop\MassEffectQuasar.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="2" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\banan\Desktop\MassEffectQuasar.jar"/>
+			<item value="C:\Users\banan\Desktop\ClientHead.jar"/>
 			<item value="C:\Users\banan\Desktop\MRQuasar.jar"/>
 			<item value="C:\Users\banan\Desktop\MJReyesAssessmentE.jar"/>
 		</list>
@@ -146,6 +148,7 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+		<item value="false" key="configure_problem_severity_dialog_id"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item value="678" key="DIALOG_WIDTH"/>
