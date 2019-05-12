@@ -7,8 +7,6 @@
  */
 package reyesProjects;
 
-import java.awt.Color;
-
 import javax.swing.JFrame;
 
 /**
@@ -30,7 +28,7 @@ public class Pong extends JFrame
 	{
 		setSize(WIDTH, HEIGHT);
 		setTitle("Ping Pong");
-		setBackground(Color.BLACK);
+		//setBackground(Color.BLACK); Not needed?
 		setResizable(false); //Cannot change screen size when active;
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		screen = new Screen(this);

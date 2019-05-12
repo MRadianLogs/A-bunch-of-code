@@ -1,1 +1,7 @@
-Info: Nothing to build for MyFirstCPPProject
+17:27:46 **** Incremental Build of configuration Debug for project MyFirstCPPProject ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\MyFirstCPPProject.o" "..\\src\\MyFirstCPPProject.cpp" 
+g++ -o MyFirstCPPProject.exe "src\\MyFirstCPPProject.o" 
+
+17:27:49 Build Finished. 0 errors, 0 warnings. (took 3s.345ms)
+

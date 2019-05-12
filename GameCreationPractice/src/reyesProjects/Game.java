@@ -36,10 +36,22 @@ public class Game extends JFrame
 		add(screen);
 		setVisible(true);
 	}
+	
 	public Screen getScreen()
 	{
 		return screen;
 	}
+	
+	public int getScreenWidth()
+	{
+		return SCREEN_WIDTH;
+	}
+	
+	public int getScreenHeight()
+	{
+		return SCREEN_HEIGHT;
+	}
+	
 	public static void main(String[] args)
 	{
 		Game game = new Game();

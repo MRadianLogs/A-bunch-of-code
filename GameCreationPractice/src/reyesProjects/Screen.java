@@ -29,16 +29,24 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	private Person person1;
 	private Person person2;
 	
+	private Link link;
+	
 	public Screen(Game game)
 	{
 		setBackground(Color.BLACK);
 		this.game = game;
-		person1 = new Person(game, KeyEvent.VK_S, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, Color.RED, 50);
-		person2 = new Person(game, KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, Color.BLUE, 50);
+//		person1 = new Person(game, KeyEvent.VK_S, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, Color.RED, 50);
+//		person2 = new Person(game, KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, Color.BLUE, 50);
+		link = new Link(game, 50, 50,KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_COMMA, KeyEvent.VK_PERIOD);
 		Timer timer = new Timer(5,this);
 		timer.start();
 		addKeyListener(this);
 		setFocusable(true);
+	}
+	
+	public Game getGame()
+	{
+		return game;
 	}
 	
 	public Person getPerson(int personNum)
@@ -55,8 +63,9 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	
 	public void update()
 	{
-		person1.update();
-		person2.update();
+		//person1.update();
+		//person2.update();
+		link.update();
 	}
 	
 	@Override
@@ -69,15 +78,17 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		person1.keyPressed(e.getKeyCode());
-		person2.keyPressed(e.getKeyCode());
+		//person1.keyPressed(e.getKeyCode());
+		//person2.keyPressed(e.getKeyCode());
+		link.keyPressed(e.getKeyCode());
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		person1.keyReleased(e.getKeyCode());		
-		person2.keyReleased(e.getKeyCode());		
+		//person1.keyReleased(e.getKeyCode());		
+		//person2.keyReleased(e.getKeyCode());		
+		link.keyReleased(e.getKeyCode());
 	}
 
 	@Override
@@ -90,8 +101,9 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		person1.paint(g);
-		person2.paint(g);
+		//person1.paint(g);
+		//person2.paint(g);
+		link.paint(g);
 		
 	}
 }

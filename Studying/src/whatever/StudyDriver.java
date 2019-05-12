@@ -1,18 +1,16 @@
 package whatever;
-import java.util.Scanner;
+
 public class StudyDriver
 {
+	public static final int MIKE_CONSTANT = 21; //Constant!
 
 	public static void main(String[] args)
 	{
-		Scanner input = new Scanner(System.in);
+		System.out.print("Int trouble: ");
+		System.out.println((11/89) * 100);
 		
-		
-		
-		String name = input.nextLine();
-		
-		System.out.println(name + 2);
-
+		System.out.print("\nInt trouble fixed: ");
+		System.out.println((11.0/89) * 100);
 	}
 
 }
