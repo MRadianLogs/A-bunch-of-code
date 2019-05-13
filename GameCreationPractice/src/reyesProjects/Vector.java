@@ -8,7 +8,8 @@
 package reyesProjects;
 
 /**
- * <Insert C;ass Description Here>
+ * This is the class I created to represent physics vectors. This class was designed as an upgrade to the vector 
+ * class from the Coding Math Youtube tutorial.
  *
  * @author Michael Jesus Reyes
  *

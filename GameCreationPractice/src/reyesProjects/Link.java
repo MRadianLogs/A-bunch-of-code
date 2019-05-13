@@ -70,7 +70,7 @@ public class Link
 		{
 			if(position.getLength() > 0)
 			{
-				velocity.setLength(length);
+				//velocity.setLength(length);
 				position.setLength(0);
 			}
 			else if(position.getLength() < 0)
