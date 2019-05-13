@@ -3,5 +3,5 @@
 /.metadata/
 /.recommenders/
 ZGameClient
-/ZGameLevelCreator/
-/ZGameServer/
+ZGameLevelCreator
+ZGameServer
