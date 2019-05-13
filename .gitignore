@@ -1,7 +1,7 @@
 #This .gitignore ignores certain files I dont want posted on github.
 
-/.metadata/
-/.recommenders/
+.metadata
+.recommenders
 ZGameClient
 ZGameLevelCreator
 ZGameServer

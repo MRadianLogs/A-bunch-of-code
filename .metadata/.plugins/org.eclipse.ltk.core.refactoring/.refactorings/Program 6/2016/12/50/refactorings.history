@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move 3 elements to &apos;Program 6/src/edu.ilstu.program6&apos;&#x0D;&#x0A;- Original project: &apos;Program 6&apos;&#x0D;&#x0A;- Destination element: &apos;Program 6/src/edu.ilstu.program6&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     edu.ilstu.PeriodicTableApp.java&#x0D;&#x0A;     edu.ilstu.PeriodicTable.java&#x0D;&#x0A;     edu.ilstu.Element.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;edu.ilstu.program6" element1="/src&lt;edu.ilstu{PeriodicTableApp.java" element2="/src&lt;edu.ilstu{PeriodicTable.java" element3="/src&lt;edu.ilstu{Element.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1480980294682" units="3" version="1.0"/>
-</session>
