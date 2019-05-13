@@ -7,5 +7,6 @@ ZGameClient
 ZGameLevelCreator
 ZGameServer
 
-#Im not sure what this is.
+#Im not sure what this submodule is. I need to look into it.
+#I removed it using: git rm --cached module3/ -r
 module3
