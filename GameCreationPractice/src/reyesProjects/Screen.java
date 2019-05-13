@@ -27,21 +27,28 @@ import javax.swing.Timer;
 public class Screen extends JPanel implements ActionListener, KeyListener
 {
 	private Game game;
+	
+	//First game stuff
 	private Person person1;
 	private Person person2;
 	
-	//private Link link;
+	//Test Player with vector stuff
+	private Link link;
+	
+	private Vector position, velocity;
+	private Particle mikeParticle;
+	
+	private Particle[] firework;
+	private int numFireworkBursts = 1000;
 	
 	public Screen(Game game)
 	{	
 		setupGameEngine(game);
 		
-		setupFirstGame();
+		//setupFirstGame();
 		//setupVectorPractice();
-		
-		
-		//link = new Link(game, 50, 50,KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_COMMA, KeyEvent.VK_PERIOD);
-		
+		setupParticlePractice();
+		//setupTestPlayerWithVector();
 	}
 	
 	public void setupGameEngine(Game game)
@@ -52,6 +59,11 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		timer.start();
 		addKeyListener(this);
 		setFocusable(true);	
+	}
+	
+	public void setupTestPlayerWithVector()
+	{
+		link = new Link(game, 50, 50,KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_COMMA, KeyEvent.VK_PERIOD);
 	}
 	
 	public void setupFirstGame()
@@ -98,6 +110,20 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		System.out.println(testMyVector.getLength());
 	}
 	
+	public void setupParticlePractice()
+	{
+		position = new Vector(100, 100, false);
+		velocity = new Vector(Math.PI/6, 1, true);
+		
+		mikeParticle = new Particle(100, 100, 3, Math.PI/6);
+		
+		firework = new Particle[numFireworkBursts];
+		for(int i = 0; i < firework.length; i++)
+		{
+			firework[i] = new Particle(game.getWidth()/2, game.getHeight()/2, Math.random()*4+1, Math.random()*Math.PI*2);
+		}
+	}
+	
 	public Game getGame()
 	{
 		return game;
@@ -117,14 +143,33 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	
 	public void update()
 	{
-		updateFirstGame();
-		//link.update();
+		//updateFirstGame();
+		//updateTestPlayerWithVector();
+		updateParticlePractice();
 	}
 	
 	public void updateFirstGame()
 	{
 		person1.update();
 		person2.update();
+	}
+	
+	public void updateParticlePractice()
+	{
+		//Update particle
+		position.addTo(velocity);
+		
+		mikeParticle.update();
+		
+		for(int i = 0; i < firework.length; i++)
+		{
+			firework[i].update();
+		}
+	}
+	
+	public void updateTestPlayerWithVector()
+	{
+		link.update();
 	}
 	
 	@Override
@@ -137,8 +182,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		firstGameKeyPressed(e);
-		//link.keyPressed(e.getKeyCode());
+		//firstGameKeyPressed(e);
+		//testPlayerWithVectorKeyPressed(e);
 	}
 	
 	public void firstGameKeyPressed(KeyEvent e)
@@ -146,18 +191,28 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		person1.keyPressed(e.getKeyCode());
 		person2.keyPressed(e.getKeyCode());
 	}
+	
+	public void testPlayerWithVectorKeyPressed(KeyEvent e)
+	{
+		link.keyPressed(e.getKeyCode());
+	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		firstGameKeyReleased(e);
-		//link.keyReleased(e.getKeyCode());
+		//firstGameKeyReleased(e);
+		//testPlayerWithVectorKeyReleased(e);
 	}
 	
 	public void firstGameKeyReleased(KeyEvent e)
 	{
 		person1.keyReleased(e.getKeyCode());		
 		person2.keyReleased(e.getKeyCode());				
+	}
+	
+	public void testPlayerWithVectorKeyReleased(KeyEvent e)
+	{
+		link.keyReleased(e.getKeyCode());
 	}
 
 	@Override
@@ -170,14 +225,31 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		paintFirstGame(g);
-		//link.paint(g);
-		
+		//paintFirstGame(g);
+		//paintTestPlayerWithVector(g);
+		paintParticlePractice(g);
 	}
 	
 	public void paintFirstGame(Graphics g)
 	{
 		person1.paint(g);
 		person2.paint(g);
+	}
+	
+	public void paintParticlePractice(Graphics g)
+	{
+		g.setColor(Color.RED);
+		g.fillOval((int)position.getxPos(), (int)position.getyPos(), 20, 20);
+		
+		mikeParticle.paint(g);
+		for(int i = 0; i < firework.length; i++)
+		{
+			firework[i].paint(g);
+		}
+	}
+	
+	public void paintTestPlayerWithVector(Graphics g)
+	{
+		link.paint(g);
 	}
 }

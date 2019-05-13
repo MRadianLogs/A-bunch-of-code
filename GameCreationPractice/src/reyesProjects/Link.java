@@ -134,11 +134,11 @@ public class Link
 	
 	public void checkBounds()
 	{
-		if(position.getxPos()+WIDTH>=game.getScreenWidth())
+		if(position.getxPos()+WIDTH>=game.getScreenWidth()-WIDTH)
 		{
 			position.setxPos(game.getScreenWidth()-WIDTH);
 		}
-		if(position.getyPos()+HEIGHT>=game.getScreenHeight())
+		if(position.getyPos()+HEIGHT>=game.getScreenHeight()-HEIGHT)
 		{
 			position.setyPos(game.getScreenHeight()-(HEIGHT*4));
 		}

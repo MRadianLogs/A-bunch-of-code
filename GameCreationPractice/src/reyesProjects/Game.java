@@ -22,7 +22,7 @@ import javax.swing.JFrame;
  */
 public class Game extends JFrame
 {
-	public final static int SCREEN_WIDTH = 900, SCREEN_HEIGHT = 600; 
+	public final static int SCREEN_WIDTH = 1920, SCREEN_HEIGHT = 1080; 
 	private Screen screen;
 	
 	public Game()

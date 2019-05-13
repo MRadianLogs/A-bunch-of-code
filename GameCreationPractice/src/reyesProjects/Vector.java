@@ -9,7 +9,8 @@ package reyesProjects;
 
 /**
  * This is the class I created to represent physics vectors. This class was designed as an upgrade to the vector 
- * class from the Coding Math Youtube tutorial.
+ * class from the Coding Math Youtube tutorial. This class' functionality was tested compared to the tutorial 
+ * class and it works the same.
  *
  * @author Michael Jesus Reyes
  *
