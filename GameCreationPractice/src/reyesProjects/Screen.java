@@ -37,9 +37,11 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	
 	private Vector position, velocity;
 	private Particle mikeParticle;
-	
 	private Particle[] firework;
-	private int numFireworkBursts = 1000;
+	private int numFireworkBursts = 500;
+	private Vector pos2, vel2, accel;
+	private Particle mikeParticleV2;
+	private ControllableParticle ship; //A controllable particle.
 	
 	public Screen(Game game)
 	{	
@@ -115,13 +117,20 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		position = new Vector(100, 100, false);
 		velocity = new Vector(Math.PI/6, 1, true);
 		
-		mikeParticle = new Particle(100, 100, 3, Math.PI/6);
+		mikeParticle = new Particle(100, 100, 3, Math.PI/6, 0, 0, Color.BLUE, 25);
 		
-		firework = new Particle[numFireworkBursts];
-		for(int i = 0; i < firework.length; i++)
-		{
-			firework[i] = new Particle(game.getWidth()/2, game.getHeight()/2, Math.random()*4+1, Math.random()*Math.PI*2);
-		}
+//		firework = new Particle[numFireworkBursts];
+//		for(int i = 0; i < firework.length; i++)
+//		{
+//			firework[i] = new Particle(game.getWidth()/2, game.getHeight()/2, Math.random()*4+1, Math.random()*Math.PI*2);
+//		}
+		pos2 = new Vector(100, game.getHeight(), false);
+		vel2 = new Vector(-Math.PI/2, 4, true);
+		accel = new Vector(0.01,0.01, false);
+		
+		mikeParticleV2 = new Particle(game.getWidth()-100, game.getHeight(), 4, -Math.PI/2, -0.01, 0.01, Color.ORANGE, 55.5);
+		
+		ship = new ControllableParticle(game, game.getWidth()/2, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
 	}
 	
 	public Game getGame()
@@ -161,10 +170,17 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		
 		mikeParticle.update();
 		
-		for(int i = 0; i < firework.length; i++)
-		{
-			firework[i].update();
-		}
+//		for(int i = 0; i < firework.length; i++)
+//		{
+//			firework[i].update();
+//		}
+		
+		pos2.addTo(vel2);
+		vel2.addTo(accel);
+		
+		mikeParticleV2.update();
+		
+		ship.update();
 	}
 	
 	public void updateTestPlayerWithVector()
@@ -184,6 +200,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		//firstGameKeyPressed(e);
 		//testPlayerWithVectorKeyPressed(e);
+		particlePracticeKeyPressed(e);
 	}
 	
 	public void firstGameKeyPressed(KeyEvent e)
@@ -197,11 +214,17 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		link.keyPressed(e.getKeyCode());
 	}
 
+	public void particlePracticeKeyPressed(KeyEvent e)
+	{
+		ship.keyPressed(e.getKeyCode());
+	}
+	
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
 		//firstGameKeyReleased(e);
 		//testPlayerWithVectorKeyReleased(e);
+		particlePracticeKeyReleased(e);
 	}
 	
 	public void firstGameKeyReleased(KeyEvent e)
@@ -215,6 +238,11 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		link.keyReleased(e.getKeyCode());
 	}
 
+	public void particlePracticeKeyReleased(KeyEvent e)
+	{
+		ship.keyReleased(e.getKeyCode());
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
@@ -242,10 +270,17 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		g.fillOval((int)position.getxPos(), (int)position.getyPos(), 20, 20);
 		
 		mikeParticle.paint(g);
-		for(int i = 0; i < firework.length; i++)
-		{
-			firework[i].paint(g);
-		}
+//		for(int i = 0; i < firework.length; i++)
+//		{
+//			firework[i].paint(g);
+//		}
+		
+		g.setColor(Color.GREEN);
+		g.fillOval((int)pos2.getxPos(), (int)pos2.getyPos(), 20, 20);
+		
+		mikeParticleV2.paint(g);
+		
+		ship.paint(g);
 	}
 	
 	public void paintTestPlayerWithVector(Graphics g)
