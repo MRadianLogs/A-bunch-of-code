@@ -23,6 +23,8 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 {
 	private double angleFacing;
 	private boolean thrusting, turningLeft, turningRight, shooting;
+	private Particle[] bullets;
+	Particle bullet;
 	
 	public AsteroidsShip(Game game, double xPos, double yPos, Color particleColor, double particleDiameter, int upButton, int downButton, int leftButton, int rightButton) 
 	{
@@ -32,6 +34,9 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 		turningLeft = false;
 		turningRight = false;
 		shooting = false;
+		bullet = null;
+		bullets = new Particle[6]; //TODO I could probably do with creating a AsteroidsBullet class so that I can check for collisions/out of bounds and other mechanics of the bullets there.
+		//TODO I need to make a Bullet manager class in order to draw the bullets/etc. This needs to be in the Screen class!
 	}
 	
 	public void update()
@@ -63,6 +68,8 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 		if(shooting == true)
 		{
 			//TODO Make it shoot particles!
+			//I can either make a new bullet by adding one to an array of bullets in the screen class, using game.getScreeen()...
+			//Or I can have a getter for the boolean shooting variable so that the screen class can check if the ship is shooting, where it would then create a new bullet on its own.
 		}
 	}
 	
@@ -108,11 +115,13 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 	{
 		Graphics2D g2D = (Graphics2D) g;
 		
-		//Since I drew the ship with the wrong starting angle, I needed to correct the angle by adding 90 radians.
-		//I also drew the ship so that it rotates around the point of the ship. I could do with fixing this so that it rotates around the center of the ship. TODO
-		g2D.rotate(angleFacing+Math.toRadians(90), getPosition().getxPos(), getPosition().getyPos());
+		//Since I drew the ship with the wrong starting angle, I needed to correct the angle by adding 90 degrees, through the toRadians(degrees) method.
+		//TODO I may still need to correct the drawing so that the bullets are shot at the correct angle, unless I add to their angle as well, like I did here.
+		//I also needed to change where on the ship the rotations were being done. Instead of the point, the rotations are now done in the center of the ship.
+		g2D.rotate(angleFacing+Math.toRadians(90), getPosition().getxPos(), getPosition().getyPos()+getParticleDiameter()/2);
 		
 		g2D.setColor(getParticleColor());
+		g2D.fillOval((int)getPosition().getxPos(), (int)(getPosition().getyPos()+getParticleDiameter()/2), 2, 2);
 		g2D.drawLine((int)(getPosition().getxPos()-(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()));
 		g2D.drawLine((int)(getPosition().getxPos()+(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()));
 		g2D.drawLine((int)(getPosition().getxPos()-(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()+(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()));
@@ -122,9 +131,6 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 			g2D.setColor(Color.RED);
 			g2D.drawLine((int)(getPosition().getxPos()), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()+getParticleDiameter()+getParticleDiameter()/2));
 		}
-		
-		//g2D.rotate(angleFacing, getPosition().getxPos(), getPosition().getyPos());
-		
 	}
 
 }
