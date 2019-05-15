@@ -20,8 +20,8 @@ import java.awt.Graphics;
  */
 public class Particle 
 {
-	Vector position, velocity, acceleration;
-	Color particleColor;
+	private Vector position, velocity, acceleration;
+	private Color particleColor;
 	double particleDiameter;
 	
 	public Particle()
@@ -40,6 +40,46 @@ public class Particle
 		this.particleDiameter = particleDiameter;
 	}
 	
+	public Vector getPosition() {
+		return position;
+	}
+
+	public void setPosition(Vector position) {
+		this.position = position;
+	}
+
+	public Vector getVelocity() {
+		return velocity;
+	}
+
+	public void setVelocity(Vector velocity) {
+		this.velocity = velocity;
+	}
+
+	public Vector getAcceleration() {
+		return acceleration;
+	}
+
+	public void setAcceleration(Vector acceleration) {
+		this.acceleration = acceleration;
+	}
+
+	public Color getParticleColor() {
+		return particleColor;
+	}
+
+	public void setParticleColor(Color particleColor) {
+		this.particleColor = particleColor;
+	}
+
+	public double getParticleDiameter() {
+		return particleDiameter;
+	}
+
+	public void setParticleDiameter(double particleDiameter) {
+		this.particleDiameter = particleDiameter;
+	}
+
 	public void update()
 	{
 		velocity.addTo(acceleration);

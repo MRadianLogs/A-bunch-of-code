@@ -42,6 +42,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	private Vector pos2, vel2, accel;
 	private Particle mikeParticleV2;
 	private ControllableParticle ship; //A controllable particle.
+	private ControllableParticleWrapBounds smartShip;
+	private AsteroidsShip metroid;
 	
 	public Screen(Game game)
 	{	
@@ -130,7 +132,9 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		
 		mikeParticleV2 = new Particle(game.getWidth()-100, game.getHeight(), 4, -Math.PI/2, -0.01, 0.01, Color.ORANGE, 55.5);
 		
-		ship = new ControllableParticle(game, game.getWidth()/2, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
+		ship = new ControllableParticle(game.getWidth()/2, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
+		smartShip = new ControllableParticleWrapBounds(game, game.getWidth()/2 + 50, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
+		metroid = new AsteroidsShip(game, game.getWidth()/2 + 50, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
 	}
 	
 	public Game getGame()
@@ -181,6 +185,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		mikeParticleV2.update();
 		
 		ship.update();
+		smartShip.update();
+		metroid.update();
 	}
 	
 	public void updateTestPlayerWithVector()
@@ -217,6 +223,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	public void particlePracticeKeyPressed(KeyEvent e)
 	{
 		ship.keyPressed(e.getKeyCode());
+		smartShip.keyPressed(e.getKeyCode());
+		metroid.keyPressed(e.getKeyCode());
 	}
 	
 	@Override
@@ -241,6 +249,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	public void particlePracticeKeyReleased(KeyEvent e)
 	{
 		ship.keyReleased(e.getKeyCode());
+		smartShip.keyReleased(e.getKeyCode());
+		metroid.keyReleased(e.getKeyCode());
 	}
 	
 	@Override
@@ -280,7 +290,9 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		
 		mikeParticleV2.paint(g);
 		
-		ship.paint(g);
+		//ship.paint(g);
+		//smartShip.paint(g);
+		metroid.paint(g);
 	}
 	
 	public void paintTestPlayerWithVector(Graphics g)
