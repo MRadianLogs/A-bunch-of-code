@@ -17,7 +17,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * This class takes the concepts of UI and drawing
+ * This class takes the concepts of UI and drawing and combines then into a single "game-like" class. Using these 
+ * two concepts allows us to make games in javaFX.
  *
  * @author Michael Jesus Reyes
  *
