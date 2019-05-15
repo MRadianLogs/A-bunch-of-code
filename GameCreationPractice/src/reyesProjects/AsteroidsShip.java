@@ -115,21 +115,19 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 	{
 		Graphics2D g2D = (Graphics2D) g;
 		
-		//Since I drew the ship with the wrong starting angle, I needed to correct the angle by adding 90 degrees, through the toRadians(degrees) method.
-		//TODO I may still need to correct the drawing so that the bullets are shot at the correct angle, unless I add to their angle as well, like I did here.
-		//I also needed to change where on the ship the rotations were being done. Instead of the point, the rotations are now done in the center of the ship.
-		g2D.rotate(angleFacing+Math.toRadians(90), getPosition().getxPos(), getPosition().getyPos()+getParticleDiameter()/2);
+		g2D.rotate(angleFacing, getPosition().getxPos(), getPosition().getyPos());
 		
 		g2D.setColor(getParticleColor());
-		g2D.fillOval((int)getPosition().getxPos(), (int)(getPosition().getyPos()+getParticleDiameter()/2), 2, 2);
-		g2D.drawLine((int)(getPosition().getxPos()-(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()));
-		g2D.drawLine((int)(getPosition().getxPos()+(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()));
-		g2D.drawLine((int)(getPosition().getxPos()-(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()+(getParticleDiameter()/2)), (int)(getPosition().getyPos()+getParticleDiameter()));
-		
+		g2D.fillOval((int)getPosition().getxPos(), (int)(getPosition().getyPos()), 2, 2);
+		//getPosition().getxPos()
+		g2D.drawLine((int)(getPosition().getxPos()-getParticleDiameter()/2), (int)(getPosition().getyPos()-getParticleDiameter()/2), (int)(getPosition().getxPos()+getParticleDiameter()/2), (int)(getPosition().getyPos()));
+		g2D.drawLine((int)(getPosition().getxPos()-getParticleDiameter()/2), (int)(getPosition().getyPos()+getParticleDiameter()/2), (int)(getPosition().getxPos()+getParticleDiameter()/2), (int)(getPosition().getyPos()));
+		g2D.drawLine((int)(getPosition().getxPos()-getParticleDiameter()/2), (int)(getPosition().getyPos()-getParticleDiameter()/2), (int)(getPosition().getxPos()-getParticleDiameter()/2), (int)(getPosition().getyPos()+getParticleDiameter()/2));
+
 		if(thrusting == true)
 		{
 			g2D.setColor(Color.RED);
-			g2D.drawLine((int)(getPosition().getxPos()), (int)(getPosition().getyPos()+getParticleDiameter()), (int)(getPosition().getxPos()), (int)(getPosition().getyPos()+getParticleDiameter()+getParticleDiameter()/2));
+			g2D.drawLine((int)(getPosition().getxPos()-getParticleDiameter()/2), (int)(getPosition().getyPos()), (int)(getPosition().getxPos()-getParticleDiameter()), (int)(getPosition().getyPos()));
 		}
 	}
 
