@@ -69,7 +69,7 @@ public class MassiveParticle extends Particle
 		//gravity.setAngle(this.angleTo(otherParticle));
 		
 		//this.getVelocity().addTo(gravity);
-//		Maybe adjust accelerationVector directly?
+//		Maybe adjust accelerationVector directly? Will this not work with particles that already have an acceleration? Yes. But will I need to use such an event?
 		this.getAcceleration().setLength(otherParticle.getMass()/(distanceBetween*distanceBetween));
 		this.getAcceleration().setAngle(this.angleTo(otherParticle));
 	}

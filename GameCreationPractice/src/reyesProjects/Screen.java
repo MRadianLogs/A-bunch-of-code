@@ -148,7 +148,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		sun = new MassiveParticle(game.getWidth()/2, game.getHeight()/2, 0, 0, 0, 0, Color.YELLOW, 100, 20000);
 		earth = new MassiveParticle(game.getWidth()/2 + 250, game.getHeight()/2 , 10, -Math.PI/2, 0, 0, Color.BLUE, 20, 1265);
 		//moon = new MassiveParticle(game.getWidth()/2 + 300, game.getHeight()/2, 5, -Math.PI/2, 0, 0, Color.RED, 10, 15);
-
+		//Cannot create satellites. Perhaps I am entering the wrong specific values.
 	}
 	
 	public Game getGame()
