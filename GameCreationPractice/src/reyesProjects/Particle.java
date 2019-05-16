@@ -89,6 +89,7 @@ public class Particle
 	public void paint(Graphics g)
 	{
 		g.setColor(particleColor);
+		//TODO Need to fix drawing of particles so that they their x and y points are in the center of circle.
 		g.fillOval((int)position.getxPos(), (int)position.getyPos(), (int)particleDiameter, (int)particleDiameter);
 	}
 }

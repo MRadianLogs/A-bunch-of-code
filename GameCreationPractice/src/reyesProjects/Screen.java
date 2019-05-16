@@ -35,6 +35,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	//Test Player with vector stuff
 	private Link link;
 	
+	//Vector and Particle practice
 	private Vector position, velocity;
 	private Particle mikeParticle;
 	private Particle[] firework;
@@ -45,15 +46,20 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	private ControllableParticleWrapBounds smartShip;
 	private AsteroidsShip metroid;
 	
+	//Massive Particle practice
+	private MassiveParticle sun;
+	private MassiveParticle earth;
+	private MassiveParticle moon;
+	
 	public Screen(Game game)
 	{	
 		setupGameEngine(game);
 		
 		//setupFirstGame();
 		//setupVectorPractice();
-		setupParticlePractice();
+		//setupParticlePractice();
 		//setupTestPlayerWithVector();
-	}
+		setupMassiveParticlePractice();	}
 	
 	public void setupGameEngine(Game game)
 	{
@@ -137,6 +143,14 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		metroid = new AsteroidsShip(game, game.getWidth()/2 + 50, game.getHeight()/2, Color.YELLOW, 30, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
 	}
 	
+	public void setupMassiveParticlePractice()
+	{
+		sun = new MassiveParticle(game.getWidth()/2, game.getHeight()/2, 0, 0, 0, 0, Color.YELLOW, 100, 20000);
+		earth = new MassiveParticle(game.getWidth()/2 + 250, game.getHeight()/2 , 10, -Math.PI/2, 0, 0, Color.BLUE, 20, 1265);
+		//moon = new MassiveParticle(game.getWidth()/2 + 300, game.getHeight()/2, 5, -Math.PI/2, 0, 0, Color.RED, 10, 15);
+
+	}
+	
 	public Game getGame()
 	{
 		return game;
@@ -158,7 +172,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		//updateFirstGame();
 		//updateTestPlayerWithVector();
-		updateParticlePractice();
+		//updateParticlePractice();
+		updateMassiveParticlePractice();
 	}
 	
 	public void updateFirstGame()
@@ -194,6 +209,18 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		link.update();
 	}
 	
+	public void updateMassiveParticlePractice()
+	{
+		sun.update();
+		earth.update();
+		//moon.update();
+		earth.gravitateTo(sun);
+		//sun.gravitateTo(earth);
+		//moon.gravitateTo(earth);
+		//moon.gravitateTo(sun);
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -206,7 +233,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		//firstGameKeyPressed(e);
 		//testPlayerWithVectorKeyPressed(e);
-		particlePracticeKeyPressed(e);
+		//particlePracticeKeyPressed(e);
 	}
 	
 	public void firstGameKeyPressed(KeyEvent e)
@@ -232,7 +259,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		//firstGameKeyReleased(e);
 		//testPlayerWithVectorKeyReleased(e);
-		particlePracticeKeyReleased(e);
+		//particlePracticeKeyReleased(e);
 	}
 	
 	public void firstGameKeyReleased(KeyEvent e)
@@ -265,7 +292,8 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 		super.paintComponent(g);
 		//paintFirstGame(g);
 		//paintTestPlayerWithVector(g);
-		paintParticlePractice(g);
+		//paintParticlePractice(g);
+		paintMassiveParticlePractice(g);
 	}
 	
 	public void paintFirstGame(Graphics g)
@@ -298,5 +326,12 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	public void paintTestPlayerWithVector(Graphics g)
 	{
 		link.paint(g);
+	}
+
+	public void paintMassiveParticlePractice(Graphics g)
+	{
+		sun.paint(g);
+		earth.paint(g);
+		//moon.paint(g);
 	}
 }
