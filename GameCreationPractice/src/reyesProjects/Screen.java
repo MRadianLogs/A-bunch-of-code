@@ -145,9 +145,9 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	
 	public void setupMassiveParticlePractice()
 	{
-		sun = new MassiveParticle(game.getWidth()/2, game.getHeight()/2, 0, 0, 0, 0, Color.YELLOW, 100, 20000);
-		earth = new MassiveParticle(game.getWidth()/2 + 250, game.getHeight()/2 , 10, -Math.PI/2, 0, 0, Color.BLUE, 20, 1265);
-		//moon = new MassiveParticle(game.getWidth()/2 + 300, game.getHeight()/2, 5, -Math.PI/2, 0, 0, Color.RED, 10, 15);
+		sun = new MassiveParticle(game.getWidth()/2, game.getHeight()/2, 0, 0, 0, 0, Color.YELLOW, 100, 3000);
+		earth = new MassiveParticle(game.getWidth()/2 + 300, game.getHeight()/2 , 3, -Math.PI/2, 0, 0, Color.BLUE, 20, 700);
+		moon = new MassiveParticle(game.getWidth()/2 + 375, game.getHeight()/2, 1, -Math.PI/2, 0, 0, Color.RED, 10, 15);
 		//Cannot create satellites. Perhaps I am entering the wrong specific values.
 	}
 	
@@ -213,10 +213,10 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		sun.update();
 		earth.update();
-		//moon.update();
+		moon.update();
 		earth.gravitateTo(sun);
 		//sun.gravitateTo(earth);
-		//moon.gravitateTo(earth);
+		moon.gravitateTo(earth);
 		//moon.gravitateTo(sun);
 		
 	}
@@ -332,6 +332,6 @@ public class Screen extends JPanel implements ActionListener, KeyListener
 	{
 		sun.paint(g);
 		earth.paint(g);
-		//moon.paint(g);
+		moon.paint(g);
 	}
 }

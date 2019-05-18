@@ -67,8 +67,15 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		update();
-		repaint();		
+		try
+		{
+			update();
+			repaint();	
+		}
+		catch(Exception NullPointerException)
+		{
+			System.out.println("Caught null pointer...");
+		}	
 	}
 	
 	@Override
