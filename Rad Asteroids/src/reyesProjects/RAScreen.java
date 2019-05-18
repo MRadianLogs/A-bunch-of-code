@@ -98,7 +98,6 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 		super.paintComponent(g);
 		ship1.paint(g);
 		ship2.paint(g);
-		//TODO Bug: rotating blue ship also rotates the red ship. But not the other way around. Why? Fix.
 		//Maybe related or dif. bug: red ship sometimes has weird bounds.
 	}
 	

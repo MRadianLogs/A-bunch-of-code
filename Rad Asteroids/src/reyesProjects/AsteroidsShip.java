@@ -113,7 +113,8 @@ public class AsteroidsShip extends ControllableParticleWrapBounds
 	
 	public void paint(Graphics g)
 	{
-		Graphics2D g2D = (Graphics2D) g;
+		//Create new graphics object so that manipulating it doesn't affect other painted components.
+		Graphics2D g2D = (Graphics2D) g.create();
 		
 		g2D.rotate(angleFacing, getPosition().getxPos(), getPosition().getyPos());
 		
