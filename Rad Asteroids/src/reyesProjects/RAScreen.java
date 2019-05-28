@@ -29,8 +29,10 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 	private RadAsteroidsGame game;
 	private AsteroidsShip ship1;
 	private AsteroidsShip ship2;
-	private Particle[] asteroids;
-	private Particle[] shipBullets;
+	private AsteroidManager asteroids;
+	private int numMaxAsteroids;
+	private BulletManager shipBullets;
+	private int numMaxBullets;
 	
 	
 	public RAScreen(RadAsteroidsGame game)
@@ -54,14 +56,17 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 	{
 		ship1 = new AsteroidsShip(game, game.getWidth()/2 - 30, game.getHeight()/2, Color.BLUE, 25, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D);
 		ship2 = new AsteroidsShip(game, game.getWidth()/2 + 30, game.getHeight()/2, Color.RED, 25, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
-		asteroids = new Particle[5];
-		shipBullets = new Particle[20];
+		numMaxAsteroids = 20;
+		numMaxBullets = 10;
+		asteroids = new AsteroidManager(game, 5, 5);
+		//shipBullets = new Particle[numMaxBullets];
 	}
 
 	public void update()
 	{
 		ship1.update();
 		ship2.update();
+		asteroids.update();
 	}
 	
 	@Override
@@ -74,7 +79,7 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 		}
 		catch(Exception NullPointerException)
 		{
-			System.out.println("Caught null pointer...");
+			System.out.println("Caught null pointer..."); //BUG: When starting game, for some reason, a null pointer error would be found. Seemingly within this method.
 		}	
 	}
 	
@@ -105,7 +110,8 @@ public class RAScreen extends JPanel implements ActionListener, KeyListener
 		super.paintComponent(g);
 		ship1.paint(g);
 		ship2.paint(g);
-		//Maybe related or dif. bug: red ship sometimes has weird bounds.
+		//Maybe related or dif. bug: red ship sometimes has weird bounds. SEEMINGLY FIXED
+		asteroids.paint(g);
 	}
 	
 }

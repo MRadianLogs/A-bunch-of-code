@@ -33,7 +33,7 @@ public class ControllableParticleWrapBounds extends ControllableParticle
 		checkBounds();
 	}
 	
-	public void checkBounds()
+	public void checkBounds() //TODO Need to make bounds more accurate by taking in account the size of the object.
 	{
 		if(getPosition().getxPos() > game.getWidth())
 		{
